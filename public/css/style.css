@@ -1,0 +1,29 @@
+nav.navigation {
+  background: #f5f5f5;
+  margin-bottom: 20px;
+}
+
+ul.right-nav {
+  float: right;
+  margin-bottom: 0px;
+}
+.nav-navbar::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+li.nav-item {
+  list-style: none;
+  padding: 10px;
+  color: #51538c;
+  margin-bottom: 0;
+}
+
+a.brand {
+  margin-bottom: 0;
+  padding: 10px;
+  color: #9b4dca;
+  font-weight: 600;
+  float: left;
+}
