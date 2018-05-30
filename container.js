@@ -3,11 +3,14 @@ const path = require('path');
 
 const container = dependable.container();
 
-const simpleDependecies = [['_', 'lodash'],
-['passport', 'passport']];
+const simpleDependecies = [
+  ['_', 'lodash'],
+  ['passport', 'passport'],
+  ['formidable', 'formidable'],
+];
 
-simpleDependecies.forEach(function(val) {
-  container.register(val[0], function() {
+simpleDependecies.forEach(function (val) {
+  container.register(val[0], function () {
     return require(val[1]);
   });
 });
@@ -15,7 +18,7 @@ simpleDependecies.forEach(function(val) {
 container.load(path.join(__dirname, '/controllers'));
 container.load(path.join(__dirname, '/helpers'));
 
-container.register('container', function() {
+container.register('container', function () {
   return container;
 });
 

@@ -25,7 +25,7 @@
             <a href="#" class="brand">FBK</a>
             <div class="nav-navbar">
                 <ul class="right-nav">
-                    <li class="nav-item">Register</li>
+                    <li class="nav-item"><a href="/">Login</a></li>
                 </ul>
             </div>
         </section>
@@ -33,33 +33,41 @@
     <div class="container">
         <div class="row">
             <div class="column column-50 column-offset-25">
+                <div class="o-auth">
+                    <a href="/auth/facebook" class="btn">Facebook login </a>
+                </div>
 
-                    <% if(hasErrors) {%>
-                        <div class="alert alert-danger text-center">
-                           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                           <% _.forEach(messages, function(error){ %>
-                               <%= error %><br>
-                           <% }) %>
-                            
-                        </div>
+                <% if(hasErrors) {%>
+                    <div class="alert alert-danger text-center">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <% _.forEach(messages, function(error){ %>
+                            <%= error %>
+                                <br>
+                                <% }) %>
+
+                    </div>
                     <% } %>
 
-                <form action="/signup" method="post">
-                    <fieldset>
-                        <label for="nameField">Username</label>
-                        <input type="text" placeholder="USERNAME" name="username" id="nameField">
+                        <form action="/signup" method="post">
+                            <fieldset>
+                                <label for="nameField">Username</label>
+                                <input type="text" placeholder="USERNAME" name="username" id="nameField">
 
-                        <label for="nameField1">Email address</label>
-                        <input type="text" placeholder="EMAIL" name="email" id="nameField1">
+                                <label for="nameField1">Email address</label>
+                                <input type="text" placeholder="EMAIL" name="email" id="nameField1">
 
-                        <label for="nameField2">Password</label>
-                        <input type="text" placeholder="PASSWORD" name="password" id="nameField2">
-                        <input class="button-primary" type="submit" value="Send">
-                    </fieldset>
-                </form>
+                                <label for="nameField2">Password</label>
+                                <input type="text" placeholder="PASSWORD" name="password" id="nameField2">
+                                <input class="button-primary" type="submit" value="Send">
+                            </fieldset>
+                        </form>
+                    
             </div>
+
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
