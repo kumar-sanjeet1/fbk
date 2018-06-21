@@ -3,7 +3,7 @@ const Club = require('../models/clubs');
 
 module.exports = function(formidable){
     return {
-        SetRouting: function(router){
+        setRouting: function(router){
             router.get('/dashboard', this.adminPage);
             
             router.post('/uploadFile', this.uploadFile);

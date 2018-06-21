@@ -12,9 +12,9 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
 
-container.resolve(function(users, _, admin) {
+container.resolve(function(users, _, admin, home) {
   mongoose.Promise = global.Promise;
-  mongoose.connect('mongodb://localhost/fbk');
+  mongoose.connect('mongodb://fbk:fbk123@ds163850.mlab.com:63850/fbk');
 
   const app = SetupExpress();
 
@@ -23,14 +23,15 @@ container.resolve(function(users, _, admin) {
     const server = http.createServer(app);
 
     server.listen(process.env.PORT || 3000, function() {
-      console.log('Listening on port 3000');
+      console.log('Listening on port ' +( process.env.PORT || 3000));
     });
     ConfigureExpress(app);
 
     //Setup router
     const router = require('express-promise-router')();
     users.setRouting(router);
-    admin.SetRouting(router);
+    admin.setRouting(router);
+    home.setRouting(router);
 
     app.use(router);
   }
